@@ -1,0 +1,3 @@
+../Core/Src/app.c:23:6:app_init	8	static
+../Core/Src/app.c:33:6:app_loop	16	static
+../Core/Src/app.c:47:17:app_get_button_event	16	static

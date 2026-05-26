@@ -1,0 +1,15 @@
+../Core/Src/main.c:83:13:ADC1_PA4_Init_ByRegisters	1
+../Core/Src/main.c:142:17:ADC1_ReadRaw	2
+../Core/Src/main.c:160:17:ADC1_ReadMovingAverage	3
+../Core/Src/main.c:204:13:TIM2_CH1_PA5_PWM_Init_ByRegisters	1
+../Core/Src/main.c:290:13:PWM_SetDutyFromADC	2
+../Core/Src/main.c:317:13:L298N_DirectionPins_Init_ByRegisters	1
+../Core/Src/main.c:353:13:L298N_MotorForward	1
+../Core/Src/main.c:366:13:L298N_MotorReverse	1
+../Core/Src/main.c:379:13:L298N_MotorStop	1
+../Core/Src/main.c:395:13:USART2_SendADC_PWM_Values	3
+../Core/Src/main.c:440:5:main	2
+../Core/Src/main.c:519:6:SystemClock_Config	3
+../Core/Src/main.c:567:13:MX_USART2_UART_Init	2
+../Core/Src/main.c:600:13:MX_GPIO_Init	1
+../Core/Src/main.c:640:6:Error_Handler	1

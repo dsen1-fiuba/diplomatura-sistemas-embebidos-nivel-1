@@ -1,0 +1,4 @@
+../Core/Src/led_fsm.c:25:6:led_fsm_init	1
+../Core/Src/led_fsm.c:30:6:led_fsm_procesar_evento	6
+../Core/Src/led_fsm.c:57:6:led_fsm_actualizar	7
+../Core/Src/led_fsm.c:96:13:led_fsm_entrar_estado	4

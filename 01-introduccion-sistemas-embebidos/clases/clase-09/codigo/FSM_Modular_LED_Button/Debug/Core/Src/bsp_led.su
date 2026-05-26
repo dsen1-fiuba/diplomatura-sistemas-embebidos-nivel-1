@@ -1,0 +1,4 @@
+../Core/Src/bsp_led.c:12:6:bsp_led_init	8	static
+../Core/Src/bsp_led.c:17:6:bsp_led_encender	8	static
+../Core/Src/bsp_led.c:22:6:bsp_led_apagar	8	static
+../Core/Src/bsp_led.c:27:6:bsp_led_toggle	8	static
