@@ -2,7 +2,14 @@
 /**
   ******************************************************************************
   * @file           : main.c
-  * @brief          : Main program body
+  * @brief          : El proyecto lee un potenciómetro conectado a A2 / PA4 
+  * mediante ADC1_IN4, aplica un filtro de promedio móvil para estabilizar la 
+  * lectura y utiliza ese valor filtrado para modificar el duty cycle de una 
+  * señal PWM de 1 kHz generada con TIM2_CH1 sobre PA5 / D13 / LD2.
+  * Además, envía por USART2 el valor ADC filtrado, la tensión estimada, el valor
+  * de CCR1 y el duty cycle. El objetivo didáctico es integrar ADC, filtrado 
+  * digital, PWM por timer y comunicación serie, mostrando cómo el promedio móvil
+  * reduce la inestabilidad del flanco de bajada de la señal PWM.
   ******************************************************************************
   * @attention
   *

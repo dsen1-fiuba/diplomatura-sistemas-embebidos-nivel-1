@@ -2,7 +2,15 @@
 /**
   ******************************************************************************
   * @file           : main.c
-  * @brief          : Main program body
+  * @brief          : El proyecto implementa una aplicación modular sobre la 
+  * NUCLEO-F446RE donde el botón de usuario B1 / PC13 permite cambiar el comportamiento
+  * del LED LD2 / PA5 mediante una máquina de estados finitos.
+  * El sistema alterna entre distintos estados, como apagado, parpadeo lento y parpadeo
+  * rápido. La lectura del botón incluye antirrebote por software, y la lógica se organiza
+  * en módulos separados: aplicación principal, FSM del LED, BSP del botón y BSP del LED.
+  * El objetivo didáctico es mostrar cómo estructurar firmware embebido de forma modular,
+  * legible y mantenible, separando la lógica de aplicación, la máquina de estados y el 
+  * acceso al hardware.
   ******************************************************************************
   * @attention
   *

@@ -1,9 +1,19 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
+  ************************************************************************************
   * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
+  * @brief          : El proyecto ee un potenciómetro conectado a A2 / PA4 
+  * mediante ADC1_IN4, aplica un filtro de promedio móvil para estabilizar la 
+  * medición y usa el valor filtrado para modificar el duty cycle de una señal 
+  * PWM de 1 kHz generada con TIM2_CH1 sobre PA5 / D13.
+  * La señal PWM se aplica al pin ENA del driver L298N para controlar la velocidad
+  * de un motor DC, mientras que dos salidas digitales del STM32, PB5 / D4 y PB10 / D6,
+  * controlan el sentido de giro mediante las entradas IN1 e IN2 del driver.
+  * Además, el proyecto envía por USART2 el valor ADC filtrado, la tensión estimada,
+  * el valor de CCR1, el duty cycle y el sentido de giro configurado. El objetivo 
+  * didáctico es integrar ADC, filtrado digital, PWM por timer, GPIO, comunicación
+  * serie y control básico de motores DC con driver L298N.
+  **************************************************************************************
   * @attention
   *
   * Copyright (c) 2026 STMicroelectronics.

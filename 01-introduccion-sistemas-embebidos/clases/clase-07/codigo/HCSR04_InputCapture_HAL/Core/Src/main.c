@@ -1,9 +1,18 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
+  *********************************************************************************************
   * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
+  * @brief          : El proyecto mide distancia con un sensor ultrasónico HC-SR04 utilizando
+  * TIM1 en modo Input Capture con interrupción. El pin TRIG se controla desde D8 / PA9, 
+  * mientras que la señal ECHO se mide en D7 / PA8 / TIM1_CH1.
+  * El temporizador captura el instante del flanco de subida y luego el del flanco de bajada
+  * de la señal ECHO. A partir de esa diferencia se calcula el ancho del pulso en microsegundos
+  * y luego la distancia en centímetros.
+  * El proyecto envía por USART2 el tiempo medido del pulso ECHO y la distancia calculada.
+  * El objetivo didáctico es integrar GPIO, TIM Input Capture, interrupciones, medición temporal
+  * por hardware y comunicación serie, mostrando cómo medir eventos externos con mayor precisión
+  * que mediante polling.
+  **********************************************************************************************
   * @attention
   *
   * Copyright (c) 2026 STMicroelectronics.
