@@ -1,0 +1,390 @@
+[
+    {
+        "id": "2d3bdcff72dbe646",
+        "type": "serial in",
+        "z": "d7e22d8f503670bf",
+        "name": "",
+        "serial": "5e8071f98c16b24d",
+        "x": 210,
+        "y": 240,
+        "wires": [
+            [
+                "1dc6835b675ab5ac",
+                "f564a83e6af57f66",
+                "4ad2b3c8ebb44563"
+            ]
+        ]
+    },
+    {
+        "id": "5393ec64b74a9847",
+        "type": "serial out",
+        "z": "d7e22d8f503670bf",
+        "name": "",
+        "serial": "5e8071f98c16b24d",
+        "x": 370,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "b80f701527def745",
+        "type": "ui-button",
+        "z": "d7e22d8f503670bf",
+        "group": "443f5eb855fc7d8a",
+        "name": "",
+        "label": "button",
+        "order": 8,
+        "width": 2,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 170,
+        "y": 380,
+        "wires": [
+            [
+                "5393ec64b74a9847"
+            ]
+        ]
+    },
+    {
+        "id": "1dc6835b675ab5ac",
+        "type": "ui-text-input",
+        "z": "d7e22d8f503670bf",
+        "group": "443f5eb855fc7d8a",
+        "name": "",
+        "label": "text",
+        "order": 10,
+        "width": 5,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "text",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 550,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "daaa0c114c26d4e5",
+        "type": "ui-button",
+        "z": "d7e22d8f503670bf",
+        "group": "443f5eb855fc7d8a",
+        "name": "",
+        "label": "button2",
+        "order": 9,
+        "width": 2,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "2",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 180,
+        "y": 440,
+        "wires": [
+            [
+                "5393ec64b74a9847"
+            ]
+        ]
+    },
+    {
+        "id": "f564a83e6af57f66",
+        "type": "function",
+        "z": "d7e22d8f503670bf",
+        "name": "function 3",
+        "func": "let rawData = msg.payload.toString();\nlet match = rawData.match(/\\d+/); \nif (match) { \n\tlet adcValue = parseInt(match[0], 10);\n\tmsg.payload = adcValue/10.0;\n\tmsg.topic = \"adc_reading\"; return msg; \n} else { \nreturn null; \n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 240,
+        "wires": [
+            [
+                "5402e2c577c38153",
+                "168bbd02d10dfc64"
+            ]
+        ]
+    },
+    {
+        "id": "5402e2c577c38153",
+        "type": "ui-gauge",
+        "z": "d7e22d8f503670bf",
+        "name": "",
+        "group": "443f5eb855fc7d8a",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "gauge",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "°C",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "100",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "200",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "330",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 610,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4ad2b3c8ebb44563",
+        "type": "debug",
+        "z": "d7e22d8f503670bf",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "168bbd02d10dfc64",
+        "type": "function",
+        "z": "d7e22d8f503670bf",
+        "name": "function 4",
+        "func": "var temp=msg.payload;\nmsg.topic=\"INSERT INTO sensor VALUES (NULL,\"+ temp +\",current_timestamp());\"; \nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 320,
+        "wires": [
+            [
+                "2d51faa16438f1d5"
+            ]
+        ]
+    },
+    {
+        "id": "2d51faa16438f1d5",
+        "type": "mysql",
+        "z": "d7e22d8f503670bf",
+        "mydb": "09f3038469c0f539",
+        "name": "",
+        "x": 690,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5e8071f98c16b24d",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM5",
+        "serialbaud": "115200",
+        "databits": 8,
+        "parity": "none",
+        "stopbits": 1,
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": 10000
+    },
+    {
+        "id": "443f5eb855fc7d8a",
+        "type": "ui-group",
+        "name": "Group 3",
+        "page": "6754fbf385279c3d",
+        "width": 4,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "09f3038469c0f539",
+        "type": "MySQLdatabase",
+        "name": "stm32datos",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "stm32nucleo",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "6754fbf385279c3d",
+        "type": "ui-page",
+        "name": "Page 2",
+        "ui": "1d9782f5e22327ac",
+        "path": "/page2",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "6e3c5a83b98bdba2",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "1d9782f5e22327ac",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "6e3c5a83b98bdba2",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "7b62aa13a92c1a1d",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-node-serialport": "2.0.3",
+            "@flowfuse/node-red-dashboard": "1.30.2",
+            "node-red-node-mysql": "3.0.0"
+        }
+    }
+]
