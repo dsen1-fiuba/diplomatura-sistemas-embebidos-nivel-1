@@ -1,0 +1,438 @@
+[
+    {
+        "id": "4e50f82c7c2e624b",
+        "type": "telegram sender",
+        "z": "5ae8b9b75e632565",
+        "name": "Bot1",
+        "bot": "",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c8ea4f0e822b8e71",
+        "type": "telegram receiver",
+        "z": "5ae8b9b75e632565",
+        "name": "",
+        "bot": "",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "hasinput": false,
+        "inputs": 0,
+        "handleallupdates": false,
+        "handleprocessupdates": false,
+        "x": 290,
+        "y": 380,
+        "wires": [
+            [
+                "31e4dc30ab5a5663",
+                "8fe3228d84014fea"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "31e4dc30ab5a5663",
+        "type": "debug",
+        "z": "5ae8b9b75e632565",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "86dbe531b441570b",
+        "type": "inject",
+        "z": "5ae8b9b75e632565",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 80,
+        "wires": [
+            [
+                "ac33d08a80edb685"
+            ]
+        ]
+    },
+    {
+        "id": "ac33d08a80edb685",
+        "type": "function",
+        "z": "5ae8b9b75e632565",
+        "name": "function 15",
+        "func": "/*msg.payload = {\n    chatId: \"6981085086\", // Reemplaza con tu ID numérico\n    type: \"message\",\n    content: \"Hola, estoy enviando un archivo a continuación...\"\n};\nreturn msg;*/\n//  \\\nmsg.payload = {\n    chatId: \"6981085086\",\n    type: \"document\",\n    // Usa barras normales y verifica que el archivo realmente exista en esa ruta\n    content: \"C:/Users/HP/OneDrive/Documentos/tex.txt\" \n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 80,
+        "wires": [
+            [
+                "4e50f82c7c2e624b"
+            ]
+        ]
+    },
+    {
+        "id": "824708ae78b342c0",
+        "type": "debug",
+        "z": "5ae8b9b75e632565",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "6a909ea3dc52051c",
+        "type": "serial in",
+        "z": "5ae8b9b75e632565",
+        "name": "COM4",
+        "serial": "3f68517c8640750a",
+        "x": 110,
+        "y": 160,
+        "wires": [
+            [
+                "824708ae78b342c0",
+                "9c87c1a4992ad6c8",
+                "97099db810ed9f8f"
+            ]
+        ]
+    },
+    {
+        "id": "c38f3fb443c0aa87",
+        "type": "serial out",
+        "z": "5ae8b9b75e632565",
+        "name": "",
+        "serial": "3f68517c8640750a",
+        "x": 330,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "2dc7e4901c0b739d",
+        "type": "ui-button",
+        "z": "5ae8b9b75e632565",
+        "group": "443f5eb855fc7d8a",
+        "name": "",
+        "label": "Consulta",
+        "order": 9,
+        "width": 2,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 100,
+        "y": 240,
+        "wires": [
+            [
+                "c38f3fb443c0aa87"
+            ]
+        ]
+    },
+    {
+        "id": "e96720905b5d9314",
+        "type": "ui-button",
+        "z": "5ae8b9b75e632565",
+        "group": "443f5eb855fc7d8a",
+        "name": "",
+        "label": "Estado (uno)",
+        "order": 8,
+        "width": 2,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "2",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 110,
+        "y": 300,
+        "wires": [
+            [
+                "c38f3fb443c0aa87"
+            ]
+        ]
+    },
+    {
+        "id": "9c87c1a4992ad6c8",
+        "type": "ui-text-input",
+        "z": "5ae8b9b75e632565",
+        "group": "443f5eb855fc7d8a",
+        "name": "",
+        "label": "text",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "text",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 310,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8fe3228d84014fea",
+        "type": "function",
+        "z": "5ae8b9b75e632565",
+        "name": "function 20",
+        "func": "msg.payload = msg.payload.content;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 340,
+        "wires": [
+            [
+                "c38f3fb443c0aa87"
+            ]
+        ]
+    },
+    {
+        "id": "97099db810ed9f8f",
+        "type": "delay",
+        "z": "5ae8b9b75e632565",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "3",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": true,
+        "outputs": 1,
+        "x": 340,
+        "y": 200,
+        "wires": [
+            [
+                "7e5fd8869c582ff0"
+            ]
+        ]
+    },
+    {
+        "id": "7e5fd8869c582ff0",
+        "type": "function",
+        "z": "5ae8b9b75e632565",
+        "name": "function 21",
+        "func": "let tex=msg.payload;\n\n\nmsg.payload = {\n    chatId: \"6981085086\", // Reemplaza con tu ID numérico\n    type: \"message\",\n    content: tex\n};\nreturn msg;\n/*\nmsg.payload = {\n    chatId: \"6981085086\",\n    type: \"document\",\n    // Usa barras normales y verifica que el archivo realmente exista en esa ruta\n    content: \"C:/Users/HP/OneDrive/Documentos/tex.txt\" \n};\nreturn msg;*/",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 200,
+        "wires": [
+            [
+                "4e50f82c7c2e624b"
+            ]
+        ]
+    },
+    {
+        "id": "3f68517c8640750a",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM4",
+        "serialbaud": "115200",
+        "databits": 8,
+        "parity": "none",
+        "stopbits": 1,
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": 10000
+    },
+    {
+        "id": "443f5eb855fc7d8a",
+        "type": "ui-group",
+        "name": "Group 3",
+        "page": "6754fbf385279c3d",
+        "width": 4,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "6754fbf385279c3d",
+        "type": "ui-page",
+        "name": "Page 2",
+        "ui": "1d9782f5e22327ac",
+        "path": "/page2",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "6e3c5a83b98bdba2",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "1d9782f5e22327ac",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "6e3c5a83b98bdba2",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "fa13cb445c30ca9c",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-telegrambot": "17.4.17",
+            "node-red-node-serialport": "2.0.3",
+            "@flowfuse/node-red-dashboard": "1.30.2"
+        }
+    }
+]
